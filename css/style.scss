@@ -1,0 +1,302 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+:root{
+  --bg-calc:white;
+  --bg-numb:#D7D3FF;
+  --bg-equal:#5B53BA;
+  --bg-hover-numb:#adaad1;
+  --bg-fundo:#D7D3FF;
+  --color-sim:#574FB9;
+  --color-equal:#D7D3FF;
+  --color-numb:black;
+  --color-calc:rgb(32, 40, 65);
+
+}
+
+.darkMode:root{
+  --bg-calc:#1C1D23;
+  --bg-numb:#5B53BA;
+  --bg-equal:#D7D3FF;
+  --bg-hover-numb:#2d2868;
+  --bg-fundo:#262064;
+  --color-sim:#D7D3FF;
+  --color-equal:#5B53BA;
+  --color-numb:white;
+  --color-calc:rgb(226, 234, 255);
+}
+body{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-fundo);
+    position: relative;
+    overflow: hidden;
+}
+
+.lua_bx{
+  position: absolute;
+  width: 200px;
+  align-self:flex-start;
+  right: -80px;
+  transform: translateX(200px);
+  transform: translateY(-250px);
+  
+  
+  #lua{
+    position: absolute;
+    width: 100%;
+  }
+}
+.sol_bx {
+  position: absolute;
+  width: 200px;
+  align-self: flex-start;
+  left: -50px;
+  transform: translateY(0px);
+   #sol {
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.calculadora{
+    display: flex;
+    flex-direction: column;
+    width: 256px;
+    height: 513px;
+    background-color: var(--bg-calc);
+    border: 3px solid #353958;
+    justify-items: center;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  
+    .tela{
+        width: 100%;
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding-right: 10px;
+        .modo{
+            height: 80px;
+            display: flex;
+            width: 100%;
+            justify-content: flex-end;
+            align-items: center;
+
+           
+                .switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 60px;
+                    height: 34px;
+                  }
+                  
+                  .switch input { 
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                  }
+                  
+                  .slider {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #ccc;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+
+                    i{
+                        color: white;
+                        position: absolute;
+                        top: 8px;
+                        left: 10px;
+                        font-size: 15px;
+                    }
+                    
+                  }
+                  
+                  .slider:before {
+                    position: absolute;
+                    content: "";
+                    height: 26px;
+                    width: 26px;
+                    left: 4px;
+                    bottom: 4px;
+                    background-color: white;
+                  
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                  }
+                  
+                  input:checked + .slider {
+                    background-color: #353958;
+                  }
+                  
+                  input:focus + .slider {
+                    box-shadow: 0 0 1px #2196F3;
+                  }
+                  
+                  input:checked + .slider:before {
+                    -webkit-transform: translateX(26px);
+                    -ms-transform: translateX(26px);
+                    transform: translateX(26px);
+                    
+                  }
+                  
+                 
+                  /* Rounded sliders */
+                  .slider.round {
+                    border-radius: 34px;
+                  }
+                  
+                  .slider.round:before {
+                    border-radius: 50%;
+                  }
+            
+        
+        }
+        .res{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            justify-content: center;
+            font-size: 30px;
+            
+
+            .calc{
+                font-size: 15px;
+                color: var(--color-calc);
+            }
+            #resul{
+              color: var(--color-numb);
+              font-size: 45px;
+            }
+        }
+    }
+    
+    .numbers{
+        display: grid;
+        display: -moz-grid;
+        display: -ms-grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-bottom: -26px;
+        justify-items: center;
+        cursor: pointer;
+        &:active{
+          box-shadow: none;
+          
+        }
+        p{
+                margin: 2px;
+                font-size: 17px;
+                font-weight: 500;
+                width: 50px;
+                text-align: center;
+                box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+                border-radius: 21px;
+                background-color: var(--bg-numb);
+                color: var(--color-numb);
+                margin-bottom: 7px;
+                padding: 11px;
+                transition: hover, 0.2s;
+    
+            &:hover{
+              background-color:var(--bg-hover-numb) ;
+            }
+            &:active{
+              background-color:#42405c ;
+              color: white;
+            }
+            &.simb{
+                color: var( --color-sim);;
+            }
+            &.equal{
+                color:var( --color-equal);
+                background-color:var( --bg-equal);
+            }
+        }
+    }
+    
+}
+@media(min-width:321px){
+body{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+.luaShow{
+  animation: luaShow 1s ease-in-out;
+  animation-fill-mode: both;
+}
+.luaEnd{
+  animation: luaEnd 1s ease-in-out;
+  animation-fill-mode: both;
+  
+}
+.solShow{
+  animation: luaEnd 1s ease-in-out;
+  animation-fill-mode: both;
+}
+.solEnd{
+  animation: luaShow 1s ease-in-out;
+  animation-fill-mode: both;
+  
+}
+}
+@media(max-width:681px){
+  .lua_bx{
+    display: none;
+  }
+}
+@media(max-width:320px){
+  
+    .calculadora{
+        width: 100%;
+        border-radius: 0;
+        border: 5px solid #353958;
+    }
+}
+
+@keyframes luaShow {
+  0%{
+    transform: translateX(200px);
+  transform: translateY(-250px);
+    display: none;
+  }
+  100%{
+    transform: translateX(0px);
+
+  }
+}
+
+@keyframes luaEnd {
+  0%{
+    transform: translateX(0px);
+
+    
+
+  }
+  100%{
+    transform: translateX(200px);
+  transform: translateY(-250px);
+  }
+}
